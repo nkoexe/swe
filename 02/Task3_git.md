@@ -64,5 +64,16 @@ $ git commit --amend
 
 
 ### Zusammenführen eines Branches mit dem Hauptentwicklungspfad mit unterschiedlichen Änderungen in derselben Datei (Merge Konflikt)
-- Konflikt betrachten und manuell entscheiden, dann erneut mergen
-- Moin
+- `git merge branch-name` ausführen
+- Git markiert Konflikte im Code:
+```md
+<<<<<<< HEAD
+eigene Änderungen
+=======
+Änderungen aus branch-name
+>>>>>>> branch-name
+```
+- Konflikte manuell im Editor lösen und speichern.
+- Änderungen als gelöst markieren: `git add file.java`
+- Merge abschließen: `git commit`
+- Ergebnis pushen: `git push`
