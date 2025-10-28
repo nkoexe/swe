@@ -65,5 +65,4 @@ $ git commit --amend
 
 ### Zusammenführen eines Branches mit dem Hauptentwicklungspfad mit unterschiedlichen Änderungen in derselben Datei (Merge Konflikt)
 - Konflikt betrachten und manuell entscheiden, dann erneut mergen
-- @nico
-
+- Moin
