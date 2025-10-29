@@ -1,7 +1,7 @@
 /**
- * Example for Common Coupling (Steuerkopplung)
+ * Example for Common Coupling (Gemeinsame Kopplung)
  * 
- * Dies zeigt Steuerkopplung, da beide Module (ModuleA und ModuleB)
+ * Dies zeigt Gemeinsame Kopplung, da beide Module (ModuleA und ModuleB)
  * auf denselben globalen Datenbereich (GlobalData.counter) zugreifen.
  */
 
