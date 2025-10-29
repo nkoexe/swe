@@ -1,6 +1,6 @@
 ### Erstellen eines neuen Repositorys (Kommando optional. Bei Verwendung der Platform GitLab oder GitHub reicht eine Erklärung wie auf der Webseite vorgegangen wurde)
 - Lokales Verzeichnis als Git repo initilaisieren mittels `git init -b main` (`-b` bestimmt den Names des Standardbranches)
-- Evtl. existierende Dateinen mit `git add :` und `git commit -m "Commitmessage"` hinzufügen. 
+- Evtl. existierende Dateinen mit `git add .` und `git commit -m "Commitmessage"` hinzufügen. 
 - Neues repo auf Github erstellen (mit dem UI) und die remote repository URL als remote origin des gerade nich lokalen git repos hinzufügen mit `git remote add origin REMOTE-URL`
 - changes pushen mit `git push origin main`
 
@@ -10,12 +10,12 @@ Ich habe mit zum Bespiel dieses repo dass ich mir mit Nico teile mit `git clone`
 
 ### Arbeiten mit Arbeitsverzeichnissen
 
-@nico ich bin mir nicht ganz sicher was hier gemeint ist
-
 Man kann mit denen mit git getrackten Verzeichnissen arbeiten wie normalerweise auch, aber sollte sich vor dem Arbeiten mit `git pull` die aktuelle remote Version lokal herstellen und nach dem Arbeiten mit `git add`,`git commit`und `git push` die remote Version um die lokale Version updaten. 
 
 Bespiel:
 Nach dem clonen habe ich den Ordner für diese Aufgabe mit `mkdir 02`erstellt, eine Datei hinzugefügt und mit `git add *`getrackt, `git commit -m "test Commit Pia"` durchgeführt und `git push` gemacht. 
+
+Mit `git status`, `git diff` und `git log` kann man den aktuellen Zustand und die Historie der Dateien im Arbeitsverzeichnis prüfen.
 
 ### Dateien zur Versionskontrolle hinzufügen
 Mit `git add`: entweder `git add dateiname.java`eine einzelne Datei hinzufügen, oder mit `git add .` alle geänderten und neuen Dateien im aktuellen Verzeichnis hinzuzufügen (es gibt auch `git add *`, welches zb.B. .gitignore im Hauptverzeichnis nicht mit "staged").
@@ -40,7 +40,7 @@ $ git commit --amend
 
 ### Änderungen synchronisieren
 - mit `git pull` Änderungen vom remote holen
-- mit `git pull` Änderungen zum remote laden
+- mit `git push` Änderungen zum remote laden
 - dazwischen Änderungen merken mit `git add .` und
 `git commit -m "Meine Änderungen"`
 
