@@ -1,4 +1,3 @@
-package a;
 public class Entity {
     /**
      * Example for Logical and Communicational Cohesion
