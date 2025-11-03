@@ -28,7 +28,7 @@ jobs:
         run: javac -d bin 03/03/src/*.java 03/03/test/*.java
 
       - name: Run tests
-        run: java -cp bin MathUtilsTests
+        run: java -cp bin MathUtilsTests >> $GITHUB_STEP_SUMMARY
 
       - name: Build completed
         run: echo "Build and tests completed successfully!"
