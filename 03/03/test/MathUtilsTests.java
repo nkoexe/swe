@@ -86,7 +86,14 @@ public class MathUtilsTests {
         System.out.println("Running tests...\n");
         tests.testAdd();
         tests.testFactorial();
-        System.out.println("\nTests completed: " + tests.testCount + ", Passed: " + tests.passCount + ", Failed: "
-                + (tests.testCount - tests.passCount));
+
+        int failures = tests.testCount - tests.passCount;
+
+        System.out
+                .println("\nTests run: " + tests.testCount + ", Passed: " + tests.passCount + ", Failed: " + failures);
+
+        if (failures != 0) {
+            System.exit(1);
+        }
     }
 }
