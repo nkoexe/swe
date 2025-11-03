@@ -8,6 +8,11 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    
+    env:
+      COMPILE_OUTPUT: compile_output.txt
+      TEST_OUTPUT: test_output.txt
+    
     steps:
       # Get the source code
       - name: Checkout repository
@@ -26,12 +31,13 @@ jobs:
       
       - name: Compile source code and tests
         run: |
-          javac -d bin 03/03/src/*.java 03/03/test/*.java >> $COMPILE_OUTPUT
+          javac -d bin 03/03/src/*.java 03/03/test/*.java > $COMPILE_OUTPUT
 
       - name: Run tests
-        run: java -cp bin MathUtilsTests >> $TEST_OUTPUT
+        run: java -cp bin MathUtilsTests > $TEST_OUTPUT
 
       - name: Output results
+        if: always()
         run: |
           echo "::group::Compile Output"
           cat $COMPILE_OUTPUT
@@ -41,11 +47,13 @@ jobs:
           echo "::endgroup::"
 
           # get last line of test output
-          failed="$TEST_OUTPUT" | tail -1
+          failed=$(cat $TEST_OUTPUT | tail -1)
           # All tests will have passed if 'Failed: 0' is displayed
-          if [[ "$failed" != *"Failed: 0" ]]; then
+          if [[ "$failed" != *"Failed: 0"* ]]; then
             echo "## Some tests failed." >> $GITHUB_STEP_SUMMARY
-            echo "```\n$(cat $TEST_OUTPUT)\n```" >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+            cat $TEST_OUTPUT >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
             exit 1
           else
             echo "## All tests passed!" >> $GITHUB_STEP_SUMMARY
