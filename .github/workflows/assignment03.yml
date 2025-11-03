@@ -18,6 +18,8 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '21'
+          # specifying the distribution is required
+          distribution: 'temurin'
 
       - name: Create output directory
         run: mkdir -p bin
