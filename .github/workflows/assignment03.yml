@@ -1,0 +1,32 @@
+name: Compile and Test Assignment 03
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      # Get the source code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Prepare environment
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+
+      - name: Create output directory
+        run: mkdir -p bin
+      
+      - name: Compile source code and tests
+        run: javac -d bin 03/03/src/*.java 03/03/test/*.java
+
+      - name: Run tests
+        run: java -cp bin MathUtilsTests
+
+      - name: Build completed
+        run: echo "Build and tests completed successfully!"
