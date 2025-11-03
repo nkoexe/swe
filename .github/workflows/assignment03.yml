@@ -25,10 +25,28 @@ jobs:
         run: mkdir -p bin
       
       - name: Compile source code and tests
-        run: javac -d bin 03/03/src/*.java 03/03/test/*.java
+        run: |
+          javac -d bin 03/03/src/*.java 03/03/test/*.java >> $COMPILE_OUTPUT
 
       - name: Run tests
-        run: java -cp bin MathUtilsTests >> $GITHUB_STEP_SUMMARY
+        run: java -cp bin MathUtilsTests >> $TEST_OUTPUT
 
-      - name: Build completed
-        run: echo "Build and tests completed successfully!"
+      - name: Output results
+        run: |
+          echo "::group::Compile Output"
+          cat $COMPILE_OUTPUT
+          echo "::endgroup::"
+          echo "::group::Test Output"
+          cat $TEST_OUTPUT
+          echo "::endgroup::"
+
+          # get last line of test output
+          failed="$TEST_OUTPUT" | tail -1
+          # All tests will have passed if 'Failed: 0' is displayed
+          if [[ "$failed" != *"Failed: 0" ]]; then
+            echo "## Some tests failed." >> $GITHUB_STEP_SUMMARY
+            echo "```\n$(cat $TEST_OUTPUT)\n```" >> $GITHUB_STEP_SUMMARY
+            exit 1
+          else
+            echo "## All tests passed!" >> $GITHUB_STEP_SUMMARY
+          fi
