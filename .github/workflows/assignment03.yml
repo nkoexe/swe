@@ -8,11 +8,11 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-    
+
     env:
       COMPILE_OUTPUT: compile_output.txt
       TEST_OUTPUT: test_output.txt
-    
+
     steps:
       # Get the source code
       - name: Checkout repository
@@ -28,7 +28,7 @@ jobs:
 
       - name: Create output directory
         run: mkdir -p bin
-      
+
       - name: Compile source code and tests
         run: |
           javac -d bin 03/03/src/*.java 03/03/test/*.java > $COMPILE_OUTPUT
