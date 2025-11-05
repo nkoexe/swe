@@ -68,6 +68,8 @@ public class MathUtilsTests {
             int expected = testCase[1];
             int result = MathUtils.factorial(n);
 
+            System.out.println("hi!!");
+
             if (result == expected) {
                 passCount++;
                 System.out.println("Test " + testCount + " passed.");

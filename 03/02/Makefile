@@ -4,14 +4,14 @@ sources = $(wildcard *.java)
 # prepend output directory to all source files to get corresponding .class files
 classes = $(addprefix $(output_dir)/,$(sources:.java=.class))
 
+all: version run
+
 # Target to compile all sources
 # If a source file is newer than the corresponding class file, everything will be recompiled
 # compile inside the output directory with -d flag 
 $(classes): $(sources)
 	mkdir -p $(output_dir)
 	javac -d $(output_dir) $(sources)
-
-all: version run
 
 # Run target depends on compiled classes
 run: $(classes)
