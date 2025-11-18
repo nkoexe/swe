@@ -1,0 +1,114 @@
+## Function Points
+
+- 5 Schritte
+	- Script 4.6 Folie 15
+- Erst in der Theorie durchgehen, dann Beispiel
+
+- Theorie:
+	- Schritt 1
+		- Jede Anforderung einem Element zuordnen
+		- Anforderungpunkte
+		- Bei der Zuordnung das Gewicht wählen:
+			- Mix aus Wichtigkeit und Schwierigkeit
+			- Ergänzende Worte:
+				- Eingabe:
+					- etwas wird in das System eingegeben werden
+					- Tastatur, CD, USB-Stick, oder sonstige Quelle
+				- Ausgabe:
+					- Bildschirmausgabe
+					- Anzeige
+					- Daten zum Drucken senden
+					- Senden zu einem anderen Gerät senden
+				- Abfrage: Sehr ähnlich zur Ausgabe
+					- Auch anzeigen für den Nutzer
+					- Abfrage ist geringerer Aufwand als Ausgabe
+						- Grund: Simple Form der Ausgabe
+							- Nur Daten aus Datenbank ziehen
+							- Keine besondere weiterverarbeitung
+				- Beispiel:
+					- Preis für eine Ware anzeigen ==> Abfrage
+					- Mittelwert einer durchschnittlichen Pizza ==> Ausgabe
+						- Nicht nur Daten rausholen, sondern auch bilden von Mittelwert
+				- Datenbestände:
+					- Daten intern verarbeiten
+					- Daten auch schreiben
+						- Neue Pizza in das System aufnehmen
+					- Neue Daten kommen in die internen Daten
+				- Referenzdaten: Ähneln zu Datenbeständen
+					- Daten werden aus 3. System geholt
+					- Beispiele:
+						- Interaktion mit GPS System
+						- Daten von einer Wetterstation
+						- Daten von Börsenkurse extern
+	- Schritt 2
+		- Ähnlich wie bei COCOMO
+		- Einflussfaktoren schätzen (bis zu 14 Stück)
+		- Script 4.6 Folie 16
+		- Pro Einflussfaktor
+			- Einschätzung von 0 bis 5 Punkte
+		- Summe der Einflussfaktoren beeinflussen die Funktionpoints
+		- Beeinflussen Function Points maximal zu 35%
+			- Daher die Formel: (Summe * 0.01) + 0.65
+	- Schritt 3
+		- Functionpoints
+		- FP = Summe Anforderungen * Beeinflussung Einflussfaktoren
+		- Beeinflussung Einflussfaktoren = (Summe Einflussfaktoren * 0.01) + 0.65
+	- Schritt 4
+		- Errechnung Aufwand im Personenmonate
+			- z. B. 10 FP = 10-15 PM
+			- PM in Kosten umrechnen: z. B. 1 PM = 1000€
+	- Schritt 5
+		- Rückkopplung
+		- Wie viele PM ein FP entsprechen
+- Beispiel Durchrechnen
+	- Anforderungen
+		- 1. Anforderung: Anmelden im System
+		- 2. Anforderung: Pizza bestellen
+		- 3. Anforderung: Speisekarte verändern
+	- Schritt 1:
+		- 1. Anmelden im System
+			- Nutzername & Passwort
+			- Keine Komplexen Sachen
+			- ==> Abfrage oder Eingabe
+				- Hier in diesem Beispiel Abfrage:
+			- Niedrig/Mittel/Hoch?
+				- Annahme: Niedrig, da es 1000 mal bereits gibt
+			- ==> 3 ung. FP
+		- 2. Pizza bestellen
+			- Ort und Lieferadresse eingeben
+			- ==> Eingabe
+			- Niedrig/Mittel/Hoch?
+				- Annahme: Mittel, damit wir mal was anderes haben
+			- ==> 4 ung. FP
+		- 3. Speisekarte verändern
+			- Verwalten von internen Datenbeständen in diesem Beispiel
+			- Niedrig/Mittel/Hoch?
+				- Annahme: Hoch, damit wir mal was anderes haben
+			- ==> 15 ung. FP
+		- Aufgabenblätter & Klausur
+			- Gewichtung wird gegeben sein, da eine Einschätzung schwer ist
+			- Zuordnung muss gut begründet werden gegenüber Tutor
+		- Schritt b) Summe = 3+4+15 = 22 FP
+	- Schritt 2
+		- In der Klausur & Aufgabe werden die Gewichtung und die Einflussfaktoren genannt
+		- Einflussfaktoren
+		- Bis zu 14 können genommen werden
+		- Script 4.6 Folie 16 & 17
+		- Kleines Beispiel: 2 Einflussfaktoren
+			- 1. Datenkommunikation
+				- Mittlerer Einfluss: "Korrekte Pizza wird übermittelt"
+				- ==> 3
+			- 7. End-User-Effizienz
+				- Kritischer Einfluss: "Sonst bestellt der Nutzer woanders"
+				- ==> 5
+	- Schritt 3
+		- Berechnen der FP
+		- (3+4+15) * ((3+5) * 0,01 + 0,65)
+		- ==> gew. FP 16,06
+	- Schritt 4
+		- z. B. 10 FP = 10-15 PM
+		- ==> 16 * 1 = 16PM
+		- ==> 16 * 1,5 = 24 PM
+		- ==> Dauert 16-24 PM
+	- Schritt 5
+		- Rückkopplung nach der Entwicklung des Projektes
